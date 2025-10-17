@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PPJ_Analyza</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><blockquote>
+<p>Written with <a href="https://stackedit.io/">StackEdit</a>.</p>
+</blockquote>
+<h1 id="postup-demonstrace-vyhledávacího-algoritmu">Postup demonstrace vyhledávacího algoritmu</h1>
+<p>Cíl: Uživatel zadá nebo vygeneruje text a vzorek, poté bude mít možnost pomocí tlačítek postupovat dopředu i dozadu. Program mu postupně ukáže a vysvětlí jak najde (nebo nenajde) vzorek v textu</p>
+<h1 id="fáze-po-spuštění">Fáze po spuštění</h1>
+<h2 id="krok-0">Krok 0</h2>
+<p><strong>Výzva k vložení textu</strong></p>
+<p>Uživatel bude vyzván k vložení vlastního textu, bude mu také nabídnuto tlačítko na jeho automatické vygenerování. Vyskakovací textové pole, tlačítka Generuj a OK.</p>
+<p>Kontrola textu, nesmí být prázdný.</p>
+<p>Pokračuje na Krok 0.1.</p>
+<h2 id="krok-0.1">Krok 0.1</h2>
+<p><strong>Výzva k vložení vzorku</strong></p>
+<p>Uživatel bude vyzván k vložení hledaného vzorku. Bude mu také nabídnuto tlačítko na jeho automatické vygenerování, v tomto případě se najde krátký (cca. 4 znaky) string, která se v textu objevuje. Vyskakovací textové pole, tlačítka Generuj a OK.</p>
+<p>Kontrola vzorku, nesmí být prázdný.</p>
+<p>Pokračuje na Krok 0.2.</p>
+<h2 id="krok-0.2">Krok 0.2</h2>
+<p><strong>Vysvětlení práce s programem</strong></p>
+<p>Vyskakovací okno které sdělí zkráceně cíl programu, také vysvětlí ovládání.</p>
+<p>Pokračuje na Krok 1.</p>
+<h1 id="fáze-manuální-ovládání">Fáze manuální ovládání</h1>
+<h2 id="krok-1">Krok 1</h2>
+<p><strong>Kontrola zda je možné vzorek najít</strong></p>
+<p>Zkontroluje zda délka zbívajícího textu je větší nebo rovná délce vzorku. Vrací true nebo false.</p>
+<p>Pokud <em>true</em> program sdělí, že vzorek je možné najít a bude pokračovat na Krok 2.</p>
+<p>Pokud <em>false</em> program sdělí, že vzorek není možné najít a bude pokračovat na Krok 5.</p>
+<h2 id="krok-2">Krok 2</h2>
+<p><strong>Porovnání prvního znaku</strong></p>
+<p>Program zjistí znak vzorku a porovná ho s znakem vloženého textu. Vrací <em>true</em> nebo <em>false</em>.</p>
+<p>Pokud <em>true</em> program sdělí, že znak se shoduje a bude pokračovat na Krok 3.</p>
+<p>Pokud <em>false</em> program sdělí, že znak se neshoduje, posune se o jeden znak textu dále a opakuje Krok 1.</p>
+<h2 id="krok-3">Krok 3</h2>
+<p><strong>Kontrola zda byl vzorek nalezen</strong></p>
+<p>Zkontroluje zda pozice znaku ze vzorku není rovná délce vzorku. Vrací <em>true</em> nebo <em>false</em>.</p>
+<p>Pokud <em>true</em> program sdělí, že vzorek byl nalezen a bude pokračovat na Krok 5 (true).</p>
+<p>Pokud <em>false</em> program sdělí, že vzorek nebyl zatím nebyl nalezen a pokračuje na krok 4.</p>
+<h2 id="krok-4">Krok 4</h2>
+<p><strong>Hledání zbytku vzorku</strong></p>
+<p>Zkontroluje následující znak vzorku s následujím znakem textu. Vrací <em>true</em> nebo <em>false</em>.</p>
+<p>Pokud <em>true</em> program sdělí, že <em>X</em>té (= pořadí aktuálně porovnávaného písmena) z <em>Y</em> (= délka vzorku) bylo nalezeno, následuje Krok 3.</p>
+<p>Pokud <em>false</em> program sdělí, že další znak se neshoduje a vrací se na Krok 1.</p>
+<h2 id="krok-5">Krok 5</h2>
+<p><strong>Nalezeno/nenalezeno</strong></p>
+<p>Má boolean <em>nalezeno</em>.</p>
+<p>Pokud <em>nalazeno</em> = <em>true</em>, vzorek byl nalezen. Počet nalezených vzorků zvýší o jeden. Pokračovat na Krok 1.</p>
+<p>Pokud <em>nalezeno</em> = <em>false</em>, pokračovat na krok 6 (počet nalezených vzorků).</p>
+<h2 id="krok-6">Krok 6</h2>
+<p><strong>Hledání ukončeno</strong></p>
+<p>Má int <em>počet nalezencých vzorků</em></p>
+<p>Pokud <em>počet nalezencých vzorků</em>, je roven nule, vypíše: „Vzorek se v textu nevyskytuje. Pro pokračování zadejde jiný vzorek a/nebo text.“ Tlačítko Pokračovat vrátí na krok 0. Tlačítko Opakovat umožňěje znovu si prohlédnout všechny kroky.</p>
+<p>Pokud <em>počet nalezencých vzorků</em>, je vyšší jak nula, vypíše: „Vzorek se v textu vyskytuje Nkrát. Pro pokračování zadejde jiný vzorek a/nebo text.“ Tlačítko Pokračovat vrátí na krok 0. Tlačítko Opakovat umožňěje znovu si prohlédnout všechny kroky.</p>
+</div>
+</body>
+
+</html>
